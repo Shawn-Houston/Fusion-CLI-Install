@@ -18,6 +18,12 @@
 7. oc label ns openshift-storage openshift.io/cluster-monitoring="true"
 8. oc create -f FusionServiceInstance-DF.yaml
     1. wait for Data Foundation and Local Storage Operator install finish
+    2. CSVname=$(oc get ClusterServiceVersion -n openshift-local-storage |grep local-storage-operator| cut -d' ' -f1)
+    3. oc get ClusterServiceVersion $CSVname -n openshift-local-storage -o jsonpath='{.status.phase}{"\n"}'
+    4. wait for 'Succeeded'
+    5. CSVname=$(oc get ClusterServiceVersion -n openshift-storage |grep odf-operator| cut -d' ' -f1)
+    6. oc get ClusterServiceVersion $CSVname -n openshift-storage -o jsonpath='{.status.phase}{"\n"}'
+    7. wait for 'Succeeded'
 9. Label each Data Foundation node
     1. oc label node \<nodename> cluster.ocs.openshift.io/openshift-storage=''
 10. oc create -f lso-localvolset.yaml
