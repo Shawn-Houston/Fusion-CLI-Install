@@ -1,0 +1,20 @@
+apiVersion: service.isf.ibm.com/v1
+kind: FusionServiceInstance
+metadata:
+  name: ibm-backup-restore-service-instance
+  namespace: ibm-spectrum-fusion-ns
+spec:
+  creator: User
+  doInstall: true
+  parameters:
+    - name: namespace
+      provided: false
+      value: ibm-backup-restore
+    - name: doInstall
+      provided: false
+      value: 'true'
+    - name: storageClass
+      provided: true
+      value: ocs-storagecluster-ceph-rbd
+  serviceDefinition: ibm-backup-restore-service
+  triggerUpdate: false

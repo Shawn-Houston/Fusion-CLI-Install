@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ibm-spectrum-fusion-ns-opgroup
+  namespace: ibm-spectrum-fusion-ns
+spec:
+  targetNamespaces:
+  - ibm-spectrum-fusion-ns
+  upgradeStrategy: Default
