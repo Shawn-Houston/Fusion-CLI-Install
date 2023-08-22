@@ -14,12 +14,12 @@
 5. oc create -f fusion-instance.yaml
     1. oc get SpectrumFusion spectrumfusion -n ibm-spectrum-fusion-ns -o jsonpath='{.status.status}{"\n"}'
     2. wait for 'Completed'
-6. oc create –f FusionServiceInstance-DF.yaml
+6. oc label ns openshift-local-storage openshift.io/cluster-monitoring="true"
+7. oc label ns openshift-storage openshift.io/cluster-monitoring="true"
+8. oc create -f FusionServiceInstance-DF.yaml
     1. wait for Data Foundation and Local Storage Operator install finish
-7. Label each Data Foundation node
+9. Label each Data Foundation node
     1. oc label node \<nodename> cluster.ocs.openshift.io/openshift-storage=''
-8. oc label ns openshift-local-storage openshift.io/cluster-monitoring="true"
-9. oc label ns openshift-storage openshift.io/cluster-monitoring="true"
 10. oc create -f lso-localvolset.yaml
     1. oc get pv|grep localblock
     2. wait for all the available disks on the Data Foundation nodes to show up as PVs
