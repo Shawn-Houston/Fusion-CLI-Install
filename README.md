@@ -3,7 +3,7 @@
 ## You must have access to IBM repos/pull-secret before starting
 
 
-1. oc apply -f catalog_source.yaml -n openshift-marketplace
+1. ``oc apply -f catalog_source.yaml -n openshift-marketplace``
     1. oc get CatalogSources ibm-operator-catalog -n openshift-marketplace -o jsonpath='{.status.connectionState.lastObservedState}{"\n"}'
     2. wait for 'READY'
 2. oc create -f isf-ns.yaml
