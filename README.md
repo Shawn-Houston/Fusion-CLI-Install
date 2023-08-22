@@ -28,6 +28,7 @@
     2. wait for 'Completed'
 12. oc create -f FusionServiceInstance-BUnR.yaml
     1. oc get FusionServiceInstance ibm-backup-restore-service-instance -n ibm-spectrum-fusion-ns -o jsonpath='{.status.installStatus.progressPercentage}{"\n"}'
+    2. wait for output to show '100' percent
 
 
 
