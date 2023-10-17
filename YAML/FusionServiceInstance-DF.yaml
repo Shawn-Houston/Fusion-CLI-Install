@@ -5,7 +5,7 @@ metadata:
   namespace: ibm-spectrum-fusion-ns
 spec:
   creator: User
-  doInstall: false
+  doInstall: true
   parameters:
   - name: namespace
     provided: false
